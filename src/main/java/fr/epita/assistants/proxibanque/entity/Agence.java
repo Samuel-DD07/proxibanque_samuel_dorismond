@@ -1,12 +1,11 @@
 package fr.epita.assistants.proxibanque.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,6 +15,10 @@ public class Agence {
     @Column(length = 5)
     private String id;
 
-    private Date dateCreation;
+    private Date dateCreation = new Date();;
     private String gerant;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "agence", cascade = CascadeType.REMOVE)
+    private List<Conseiller> conseillers;
 }

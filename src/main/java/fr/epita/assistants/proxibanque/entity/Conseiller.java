@@ -1,5 +1,6 @@
 package fr.epita.assistants.proxibanque.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -16,8 +17,10 @@ public class Conseiller {
     private String prenom;
 
     @ManyToOne
+    @JoinColumn(name = "agence_id")
     private Agence agence;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "conseiller")
     private List<Client> clients;
 }

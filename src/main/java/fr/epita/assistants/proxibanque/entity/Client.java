@@ -23,8 +23,8 @@ public class Client {
     @JoinColumn(name = "conseiller_id")
     private Conseiller conseiller;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-    private List<Compte> comptes;
+//    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+//    private List<Compte> comptes;
 
 //    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
 //    private List<CarteBancaire> cartes;

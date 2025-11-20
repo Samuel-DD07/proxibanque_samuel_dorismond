@@ -56,7 +56,7 @@ public class AgenceServiceImpl implements AgenceService {
     public void delete(String id) {
 
         if (!agenceRepository.existsById(id)) {
-            throw new IllegalArgumentException("Impossible de supprimer : Agence non trouvée pour l'ID :: " + id);
+            throw new IllegalArgumentException("Impossible de supprimer : Agence non trouvée pour l'ID : " + id);
         }
 
         agenceRepository.deleteById(id);
